@@ -1,0 +1,12 @@
+MPI
+sudo apt install openmpi-bin openmpi-common libopenmpi-dev
+
+!mpicc matrix_multiplication_mpi.c -o matrix
+!mpirun --allow-run-as-root -np 1 ./matrix
+
+!mpic++ phonebook_mpi.cpp -o phonebook
+!mpirun --allow-run-as-root -np 1 ./phonebook input.txt Hasan
+
+CUDA
+!nvcc -arch=sm_75 phonebook_search.cu -o phonebook_search
+!time ./phonebook_search TAMMY 5 >output.txt
